@@ -1,0 +1,106 @@
+﻿<values>
+/responsekey = 57
+/responsekey_label = "<SPACEBAR>"
+/fontsize_target = 10%
+/fontsize_fixation = 3%
+
+/stimulusduration = 800
+/fixationduration = 200
+/anticipatoryresponse = 100
+
+/skippractice = false 
+</values>
+
+<instruct>
+/windowsize = (90%, 90%)
+/ fontstyle = ("Arial", 3.00%, false, false, false, false, 5, 1)
+/ txcolor = (black)
+/ finishlabel = "Press <Spacebar> to continue"
+/nextkey = (57)
+/nextlabel = "Press <Spacebar> to continue"
+/prevkey = (28)
+/prevlabel = "Press <Enter> to go back"
+</instruct>
+
+<page intro>
+Welcome!
+
+^^^In this task you will be presented with a stream of Xs and Ys, one letter at a time in the middle of the screen at a steady pace.
+Each letter is briefly followed by a fixation cross.
+
+^^^Your task is to press the <%values.responsekey_label%> whenever the letter you are seeing is different from the one preceding it.
+For example, if you see an X and the letter preceding it was a Y, press the <%values.responsekey_label%>. So, whenever the
+letters are alternating, you are asked to respond.
+
+^^Example: X (respond) -> Y (respond) -> X (respond)
+
+^^^When the alternation order is interrupted (aka the same letter is repeated) don't do anything. 
+
+^^Example: Y (respond) ->  X (respond) -> X (DO NOT RESPOND)
+
+</page>
+
+<page practice_SL>
+This is a short practice session. During practice you will receive error feedback each time you responded incorrectly.
+
+^^^Reminder:
+^^You will be presented a stream of Xs and Ys, one letter at a time in the middle of the screen.
+
+^^* press the <%values.responsekey_label%> whenever the letter you are seeing is different from the one preceding it.
+^* don't do anything if the letter you are seeing is the same as the one preceding it.
+
+^^^IMPORTANT: In this practice session, a letter can only be repeated ONCE before it will change again (e.g. X X Y).
+Therefore, in this session, once a letter has repeated the next letter has to be different again.
+
+^^^^Press the <SPACEBAR> to start this practice session.
+</page>
+
+<page practice_DL>
+This is a second short practice session.
+
+^^^IMPORTANT: Unlike in the previous practice session, in this practice session, a letter can be repeated ONCE or TWICE before it will change again (e.g. X X Y or X X X Y). 
+
+^^^Reminder:
+^^You will be presented a stream of Xs and Ys, one letter at a time in the middle of the screen.
+
+^^* press the <%values.responsekey_label%> whenever the letter you are seeing is different from the one preceding it.
+^* don't do anything if the letter you are seeing is the same as the one preceding it.
+
+^^^^Press the <SPACEBAR> to start this practice session.
+</page>
+
+<page practiceend>
+Practice is over and the actual task is about to begin. No error feedback will be given anymore.
+
+^^^The actual task consists of blocks like the first practice session (in which only one letter repeat was possible) and 
+the second practice session (in which a second letter repeat was possible). Pay close attention to the instructions given before each block.
+
+^^^Reminder:
+^^You will be presented a stream of Xs and Ys, one letter at a time in the middle of the screen.
+
+^^* press the <%values.responsekey_label%> whenever the letter you are seeing is different from the one preceding it.
+^* don't do anything if the letter you are seeing is the same as the one preceding it.
+
+^^^^Press the <SPACEBAR> to start.
+</page>
+
+<page SLblock>
+Start of a new round.
+^^^IMPORTANT: In this round, a letter can only be repeated ONCE before it will change again (e.g. X X Y).
+</page>
+
+<page DLblock>
+Start of a new round.
+^^^IMPORTANT: In this round, a letter can be repeated ONCE or TWICE before it will change again (e.g. X X Y or X X X Y).
+</page>
+
+<page end>
+You have reached the end of the study. Thank you for your participation!
+</page>
+
+<expt >
+
+/preinstructions = (intro)
+/postinstructions = (end)
+
+</expt>
