@@ -1,0 +1,568 @@
+﻿
+<values>
+/responsekey = 57
+/responsekey_label = "<SPACEBAR>"
+/fontsize_target = 10%
+/fontsize_fixation = 3%
+
+/stimulusduration = 800
+/fixationduration = 200
+/anticipatoryresponse = 100
+
+/skippractice = false 
+</values>
+
+***************************************************************************************
+*********************************************
+Editable Stimuli
+*********************************************
+***************************************************************************************
+
+<item stimuli>
+/1 = "X"
+/2 = "Y"
+</item>
+
+<item fixation>
+/1 = "+"
+</item>
+***************************************************************************************
+*********************************************
+Editable Instructions
+*********************************************
+***************************************************************************************
+<instruct>
+/windowsize = (90%, 90%)
+/ fontstyle = ("Arial", 3.00%, false, false, false, false, 5, 1)
+/ txcolor = (black)
+/ finishlabel = "Press <Spacebar> to continue"
+/nextkey = (57)
+/nextlabel = "Press <Spacebar> to continue"
+/prevkey = (28)
+/prevlabel = "Press <Enter> to go back"
+</instruct>
+
+<page intro>
+Welcome!
+
+^^^在这个实验中，屏幕会一次呈现X和Y，呈现完一个字母后，会出现一个注视点
+
+^^^您的任务是当你发现呈现的字母不一致的时候，按 <%values.responsekey_label%> 
+比如，您看见X出现在Y后面时，按 <%values.responsekey_label%>. 所以，不管下一个字母是什么，你都要求要作反应，
+
+^^比如: X (反应) -> Y (反应) -> X (反应)
+
+^^^当顺序被打乱的时候（即依次出现相同的字母），请您什么都不要做
+
+^^比如: Y (反应) ->  X (反应) -> X (不反应)
+</page>
+
+<page practice_SL>
+这是练习阶段，在这个阶段，当您作出错误反应时，您会得到错误反馈
+
+^^^记住:
+^^在这个实验中，屏幕会一次呈现X和Y，呈现完一个字母后，会出现一个注视点
+
+^^* 当你发现呈现的字母不一致的时候，按 <%values.responsekey_label%> 
+^* 当顺序被打乱的时候（即依次出现相同的字母），请您什么都不要做
+
+^^^注意：在这个联系阶段，一个字母在它被换成另为一个字母之前，只会重复出现一次 (如： X X Y).
+因此，在这个阶段，一旦有一个相同的字母重复出现，下一个一定是不同字母 
+
+^^^^请按 <SPACEBAR> 继续.
+</page>
+
+<page practice_DL>
+这是第二个练习阶段
+
+^^^注意：这个阶段不像第一个练习那样，一个字母在换成另一个字母前可以重复一或两次 (如 X X Y or X X X Y). 
+
+^^^记住:
+^^在这个实验中，屏幕会一次呈现X和Y，呈现完一个字母后，会出现一个注视点
+
+^^* 当你发现呈现的字母不一致的时候，按 <%values.responsekey_label%> 
+^* 当顺序被打乱的时候（即依次出现相同的字母），请您什么都不要做
+
+^^^^按 <SPACEBAR> 开始练习.
+</page>
+
+<page practiceend>
+练习结束，现在进行正式实验，正式实验中不再给错误反馈
+
+^^^正式实验像是练习的第一阶段或者第二阶段 Pay close attention to the instructions given before each block.
+
+^^^记住:
+^^Y在这个实验中，屏幕会一次呈现X和Y，呈现完一个字母后，会出现一个注视点
+
+^^* 当你发现呈现的字母不一致的时候，按 <%values.responsekey_label%> 
+^* 当顺序被打乱的时候（即依次出现相同的字母），请您什么都不要做
+
+^^^^按 <SPACEBAR> 开始
+</page>
+
+<page SLblock>
+开始一个新的环节
+^^^注意: 在这个环节, 一个字母再换成另外一个之前只会重复一次(如： X X Y).
+</page>
+
+<page DLblock>
+开始一个新的环节
+^^^注意: 在这个环节中，一个字母在被换成另一个之前会重复一次或者两次 (如： X X Y or X X X Y).
+</page>
+
+<page end>
+实验结束，谢谢您的参与！
+</page>
+
+
+<data>
+/file = "BAT_rawdata.iqdat"
+/columns = [date, time, subject, group, blockcode, blocknum, trialcode, trialnum, 
+values.blocktype values.trialtype, 
+values.stimulus, response, correct, values.RT, values.responsetype, 
+
+values.count_go_SL, values.count_nogo_SL, values.count_go_DL, values.count_nogo_DL,
+values.count_anticipatory_SL, values.count_anticipatory_DL,
+values.count_failedsuppressions_SL, values.count_failedsuppressions_DL,
+values.count_omissions_SL, values.count_omissions_DL,
+values.sumrt_go_slsl, values.count_go_slsl, values.sumrt_go_sldl, values.count_go_sldl]
+/separatefiles = true
+</data>
+
+<summarydata >
+/file = "BAT_summary.iqdat"
+/columns = [script.startdate, script.starttime, script.subjectid, script.groupid, script.elapsedtime, values.completed, 
+expressions.percent_failedsuppression_sl, expressions.percent_failedsuppression_dl,
+expressions.percent_anticipatory_sl, expressions.percent_anticipatory_dl,
+expressions.percent_omissions_sl, expressions.percent_omissions_dl,
+expressions.meanrt_go_slDL, expressions.meanrt_go_slSL, expressions.RT_Diffscore]
+</summarydata>
+
+
+<defaults>
+/minimumversion = "4.0.3.0"
+/canvasaspectratio = (4,3)
+</defaults>
+
+
+<values>
+/completed = 0
+/blockorder = ""
+/blocktype= ""
+/trialtype = ""
+/responsetype = ""
+/previousresponsetype = ""
+/selecttarget = 1
+/rt = 0
+/stimulus = ""
+/count_go_SL = 0
+/count_nogo_SL = 0
+/count_omissions_SL = 0
+/count_failedsuppressions_SL = 0
+/count_anticipatory_SL = 0
+/count_go_DL = 0
+/count_nogo_DL = 0
+/count_omissions_DL = 0
+/count_failedsuppressions_DL = 0
+/count_anticipatory_DL = 0
+/count_Go_SLSL = 0
+/sumRT_Go_SLSL = 0
+/count_Go_SLDL = 0
+/sumRT_Go_SLDL = 0
+</values>
+
+<expressions>
+/percent_omissions_SL= 100* (values.count_omissions_SL/values.count_go_SL)
+/percent_anticipatory_SL = 100 * (values.count_anticipatory_SL/values.count_go_SL)
+/percent_failedsuppression_SL = 100 * (values.count_failedsuppressions_SL/values.count_nogo_SL)
+
+/percent_omissions_DL= 100* (values.count_omissions_DL/values.count_go_DL)
+/percent_anticipatory_DL = 100 * (values.count_anticipatory_DL/values.count_go_DL)
+/percent_failedsuppression_DL = 100 * (values.count_failedsuppressions_DL/values.count_nogo_DL)
+
+/meanrt_GO_SLSL = values.sumrt_go_slsl/values.count_go_slsl
+/meanrt_GO_SLDL = values.sumrt_go_sldl/values.count_go_sldl
+/RT_Diffscore = expressions.meanrt_go_sldl - expressions.meanrt_go_slsl
+</expressions>
+
+<text target>
+/items = stimuli
+/select = values.selecttarget
+/ fontstyle = ("Arial", values.fontsize_target, false, false, false, false, 5, 1)
+/ txcolor = (0, 0, 0)
+</text>
+
+<text fixationcross>
+/items = fixation
+/select = 1
+/ fontstyle = ("Arial", values.fontsize_fixation, false, false, false, false, 5, 1)
+/ txcolor = (0, 0, 0)
+</text>
+
+<shape eraser>
+/shape = rectangle
+/size = (100%, 100%)
+/color = white
+/position = (50%, 50%)
+</shape>
+
+<text errorfeedback>
+/items = ("Error")
+/ fontstyle = ("Arial", 8%, false, false, false, false, 5, 1)
+/ txcolor = (red)
+/position = (50%, 80%)
+</text>
+
+
+<list firsttarget>
+/items = (1, 2)
+/replace = true
+</list>
+
+<trial startGO>
+/ontrialbegin = [values.trialtype = "Go"]
+/ontrialbegin = [values.selecttarget = list.firsttarget.nextvalue]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_go_SL += 1 else values.count_go_dl += 1]
+
+/ontrialbegin = [trial.startgo.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.startgo.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.startgo.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.startgo.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.startgo.response == values.responsekey || trial.startgo.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.startgo.response == values.responsekey]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.startgo.response != 0) values.rt = trial.startgo.latency else values.rt = ""]
+/ontrialend = [if (values.rt !=""  && values.rt >= values.anticipatoryresponse) {values.responsetype = "Go Success"}]
+/ontrialend = [if (values.rt !="" && values.rt < values.anticipatoryresponse) {values.responsetype = "Go Anticipatory"}]
+/ontrialend = [if (values.rt == "") {values.responsetype = "Go Omission"}]
+
+/ontrialend = [if (values.responsetype == "Go Omission" && values.blocktype == "SL") values.count_omissions_SL += 1]
+/ontrialend = [if (values.responsetype == "Go Omission" && values.blocktype == "DL") values.count_omissions_DL += 1]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "SL") {values.count_anticipatory_SL += 1}]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "DL") {values.count_anticipatory_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+</trial>
+
+
+<trial GO>
+/ontrialbegin = [values.trialtype = "Go"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_go_SL += 1 else values.count_go_dl += 1]
+/ontrialbegin = [if (values.selecttarget == 1) values.selecttarget = 2 else values.selecttarget = 1]
+
+/ontrialbegin = [trial.GO.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.GO.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.GO.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.GO.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.GO.response == values.responsekey || trial.GO.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.GO.response == values.responsekey]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.GO.response != 0) values.rt = trial.GO.latency else values.rt = ""]
+/ontrialend = [if (values.rt !="" >= values.anticipatoryresponse) {values.responsetype= "Go Success"}]
+/ontrialend = [if (values.rt !="" && values.rt < values.anticipatoryresponse) {values.responsetype = "Go Anticipatory"}]
+/ontrialend = [if (values.rt == "") {values.responsetype = "Go Omission"}]
+
+/ontrialend = [if (values.responsetype == "Go Omission" && values.blocktype == "SL") values.count_omissions_SL += 1]
+/ontrialend = [if (values.responsetype == "Go Omission" && values.blocktype == "DL") values.count_omissions_DL += 1]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "SL") {values.count_anticipatory_SL += 1}]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "DL") {values.count_anticipatory_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+</trial>
+
+
+<trial NOGO_DL1>
+/ontrialbegin = [values.trialtype = "NoGo"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_nogo_SL += 1 else values.count_NOGO_DL += 1]
+
+/ontrialbegin = [trial.NOGO_DL1.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_DL1.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_DL1.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.NOGO_DL1.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.NOGO_DL1.response == values.responsekey || trial.NOGO_DL1.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.NOGO_DL1.response == 0]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.NOGO_DL1.response != 0) values.rt = trial.NOGO_DL1.latency else values.rt = ""]
+/ontrialend = [if (trial.NOGO_DL1.error) {values.responsetype = "NoGo Failure"} 
+							else {values.responsetype = "NoGo Success"}]
+
+/ontrialend = [if (trial.NOGO_DL1.error) {values.count_failedsuppressions_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+/branch = [trial.NOGO_DL2]
+</trial>
+
+<trial NOGO_DL2>
+/ontrialbegin = [values.trialtype = "NoGo"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_NOGO_SL += 1 else values.count_nogo_dl += 1]
+
+/ontrialbegin = [trial.NOGO_DL2.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_DL2.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_DL2.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.NOGO_DL2.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.NOGO_DL2.response == values.responsekey || trial.NOGO_DL2.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.NOGO_DL2.response == 0]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.NOGO_DL2.response != 0) values.rt = trial.NOGO_DL2.latency else values.rt = ""]
+/ontrialend = [if (trial.NOGO_DL2.error) {values.responsetype = "NoGo Failure"} 
+							else {values.responsetype = "NoGo Success"}]
+
+/ontrialend = [if (trial.NOGO_DL2.error) {values.count_failedsuppressions_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+/branch = [trial.GO_DL]
+</trial>
+
+
+<trial GO_DL>
+/ontrialbegin = [values.trialtype = "Go"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_go_SL += 1 else values.count_go_dl += 1]
+/ontrialbegin = [if (values.selecttarget == 1) values.selecttarget = 2 else values.selecttarget = 1]
+
+/ontrialbegin = [trial.GO_DL.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.GO_DL.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.GO_DL.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.GO_DL.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.GO_DL.response == values.responsekey || trial.GO_DL.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.GO_DL.response == values.responsekey]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.GO_DL.response != 0) values.rt = trial.GO_DL.latency else values.rt = ""]
+/ontrialend = [if (values.rt !=" "  && values.rt >= values.anticipatoryresponse) {values.responsetype = "Go Success"}]
+/ontrialend = [if (values.rt !="" && values.rt < values.anticipatoryresponse) {values.responsetype = "Go Anticipatory"}]
+/ontrialend = [if (values.rt == "") {values.responsetype = "Go Omission"}]
+
+/ontrialend = [if (values.responsetype == "Go Omission") values.count_omissions_DL += 1]
+/ontrialend = [if (values.responsetype == "Go Anticipatory") {values.count_anticipatory_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+</trial>
+
+
+<trial NOGO_SL>
+/ontrialbegin = [values.trialtype = "NoGo"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_nogo_SL += 1 else values.count_nogo_dl += 1]
+
+/ontrialbegin = [trial.NOGO_SL.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_SL.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.NOGO_SL.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.NOGO_SL.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.NOGO_SL.response == values.responsekey || trial.NOGO_SL.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.NOGO_SL.response == 0]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.NOGO_SL.response != 0) values.rt = trial.NOGO_SL.latency else values.rt = ""]
+/ontrialend = [if (trial.NOGO_SL.error) {values.responsetype = "NoGo Failure"} 
+							else {values.responsetype = "NoGo Success"}]
+
+/ontrialend = [if (trial.NOGO_SL.error && values.blocktype == "SL") {values.count_failedsuppressions_SL += 1}]
+/ontrialend = [if (trial.NOGO_SL.error && values.blocktype == "DL") {values.count_failedsuppressions_DL += 1}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+/branch = [trial.GO_SL]
+</trial>
+
+<trial GO_SL>
+/ontrialbegin = [values.trialtype = "Go"]
+/ontrialbegin = [if (values.blocktype == "SL") values.count_go_SL += 1 else values.count_go_dl += 1]
+/ontrialbegin = [if (values.selecttarget == 1) values.selecttarget = 2 else values.selecttarget = 1]
+/ontrialbegin = [values.previousresponsetype = values.responsetype]
+
+/ontrialbegin = [trial.GO_SL.insertstimulustime(shape.eraser, values.stimulusduration)]
+/ontrialbegin = [trial.GO_SL.insertstimulustime(text.fixationcross, values.stimulusduration)]
+/ontrialbegin = [trial.GO_SL.insertstimulustime(shape.eraser, (values.fixationduration + values.stimulusduration))]
+/ontrialend = [trial.GO_SL.resetstimulusframes()]
+
+/stimulustimes = [0 = target]
+/responseinterrupt = frames
+/beginresponsetime = 0
+/isvalidresponse = [trial.GO_SL.response == values.responsekey || trial.GO_SL.response == 0]
+/monkeyresponse = (57, 0)
+/iscorrectresponse = [trial.GO_SL.response == values.responsekey]
+
+/ontrialend = [values.stimulus = text.target.currentitem]
+
+/ontrialend = [if (trial.GO_SL.response != 0) values.rt = trial.GO_SL.latency else values.rt = ""]
+/ontrialend = [if (values.rt !=""  && values.rt >= values.anticipatoryresponse) {values.responsetype = "Go Success"}]
+/ontrialend = [if (values.rt !="" && values.rt < values.anticipatoryresponse) {values.responsetype = "Go Anticipatory"}]
+/ontrialend = [if (values.rt == "") {values.responsetype = "Go Omission"}]
+
+/ontrialend = [if (values.responsetype == "Go Omission" && values.blocktype == "SL") values.count_omissions_SL += 1]
+/ontrialend = [if (values.responsetype =="Go Omission" && values.blocktype == "DL") values.count_omissions_DL += 1]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "SL") {values.count_anticipatory_SL += 1}]
+/ontrialend = [if (values.responsetype == "Go Anticipatory" && values.blocktype == "DL") {values.count_anticipatory_DL += 1}]
+
+/ontrialend = [if (values.blocktype == "DL" && values.responsetype == "Go Success" && values.previousresponsetype == "NoGo Success") {values.count_go_sldl += 1; values.sumrt_go_sldl += trial.go_sl.latency}]
+/ontrialend = [if (values.blocktype == "SL" && values.responsetype == "Go Success" && values.previousresponsetype ==  "NoGo Success") {values.count_go_slsl += 1; values.sumrt_go_slsl += trial.go_sl.latency}]
+
+/trialduration = (values.stimulusduration + values.fixationduration)
+/recorddata = true
+</trial>
+
+<block SL>
+/preinstructions = (SLblock)
+/onblockbegin = [values.blocktype = "SL"]
+/trials = [1 = startGo; 2-234 = noreplace (
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, 
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL)]
+</block>
+
+
+<block DL>
+/preinstructions = (DLblock)
+/onblockbegin = [values.blocktype = "DL"]
+/trials = [1 = startGo; 2-234 = noreplace(
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO, GO, GO, GO, GO, GO, GO, GO, GO, GO, 
+GO,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL,
+NOGO_SL, NOGO_SL, NOGO_SL, NOGO_SL, 
+NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1,
+NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1, NOGO_DL1)]
+</block>
+
+
+* practice_SL: runs 25 practice trials with error feedback
+<block practice_SL>
+/skip = [values.skippractice == true]
+/preinstructions = (practice_SL)
+/onblockbegin = [values.blocktype = "practiceSL"]
+/trials = [1 = startGO; 2-21 = noreplace(GO, GO, GO, GO, NOGO_SL)]
+/onblockend = [values.count_go_SL = 0; values.count_nogo_SL = 0;
+				values.count_omissions_SL = 0; values.count_failedsuppressions_SL = 0;
+				values.count_anticipatory_SL = 0; values.count_go_DL = 0;
+				values.count_nogo_DL = 0; values.count_omissions_DL = 0;
+				values.count_failedsuppressions_DL = 0; values.count_anticipatory_DL = 0;
+				values.count_Go_SLSL = 0; values.sumRT_Go_SLSL = 0;
+				values.count_Go_SLDL = 0; values.sumRT_Go_SLDL = 0]
+/errormessage = true(errorfeedback, 500)
+</block>
+
+*practice_DL: runs 29 practice trials with errorfeedback
+<block practice_DL>
+/skip = [values.skippractice == true]
+/preinstructions = (practice_DL)
+/postinstructions = (practiceend)
+/onblockbegin = [values.blocktype = "practiceDL"]
+/trials = [1 = startGO; 2-17 = noreplace(GO, GO, NOGO_SL, NOGO_DL1)]
+/onblockend = [values.count_go_SL = 0; values.count_nogo_SL = 0;
+				values.count_omissions_SL = 0; values.count_failedsuppressions_SL = 0;
+				values.count_anticipatory_SL = 0; values.count_go_DL = 0;
+				values.count_nogo_DL = 0; values.count_omissions_DL = 0;
+				values.count_failedsuppressions_DL = 0; values.count_anticipatory_DL = 0;
+				values.count_Go_SLSL = 0; values.sumRT_Go_SLSL = 0;
+				values.count_Go_SLDL = 0; values.sumRT_Go_SLDL = 0]
+/errormessage = true(errorfeedback, 500)
+</block>
+
+
+<expt >
+/subjects = (1 of 2)
+/groupassignment = groupnumber
+/preinstructions = (intro)
+/postinstructions = (end)
+/onexptbegin = [values.blockorder = "DL-SL"]
+/blocks = [1 = practice_SL; 2 = practice_DL; 3-5 = DL; 6-8 = SL]
+/onexptend = [values.completed = 1]
+</expt>
+
+<expt >
+/subjects = (2 of 2)
+/groupassignment = groupnumber
+/preinstructions = (intro)
+/postinstructions = (end)
+/onexptbegin = [values.blockorder = "SL-DL"]
+/blocks = [1 = practice_SL; 2 = practice_DL; 3-5 = SL; 6-8 = DL]
+/onexptend = [values.completed = 1]
+</expt>
+
+<monkey>
+/ latencydistribution = normal (300, 150)
+/ percentcorrect = 95 
+</monkey>
